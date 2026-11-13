@@ -377,7 +377,7 @@ tr.ours th { box-shadow: inset 3px 0 0 var(--gold); color: var(--strong); font-w
   margin-top: 8px;
   padding: 22px 32px;
   border-radius: 10px;
-  background: linear-gradient(to right, #fff7d6, #fffdf5);
+  background: #fff9e0;
   border: 1px solid #eadca8;
   box-shadow: inset 4px 0 0 var(--cardinal), 0 2px 8px rgba(0, 0, 0, 0.04);
   font-size: 1rem;
