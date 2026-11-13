@@ -24,4 +24,4 @@ Push to GitHub, then in **Settings → Pages** choose the `main` branch and the 
 ## Figures
 
 Figures in `static/images/` are exported from the paper's `figure/` folder:
-`TNAS_demo.pdf` → `tnas_demo.jpg`, `probe_finite_steps.pdf` → `probe_finite_steps.png`, `patch_demo_{1,2}.png` → `patch_demo_{1,2}.jpg`.
+`TNAS_demo.pdf` → `tnas_demo.jpg`, `probe_finite_steps.pdf` → `probe_finite_steps.png`, `patch_demo_1.png` → `patch_demo_1.jpg`.

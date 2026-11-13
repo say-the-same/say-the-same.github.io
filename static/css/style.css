@@ -124,8 +124,9 @@ h3.subtitle {
 
 .publication-authors {
   margin: 14px auto 0;
-  max-width: 760px;
+  max-width: 960px;
   font: 400 1.25rem/1.6 "Google Sans", sans-serif;
+  text-wrap: balance;
 }
 
 .author { color: var(--strong); white-space: nowrap; }
@@ -195,6 +196,15 @@ h3.subtitle {
 
 .teaser img { width: 100%; }
 
+/* Shown only on phones, where the teaser's labels are too small to read. */
+.zoom-hint {
+  display: none;
+  margin: 8px 0 0;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
 .teaser-text {
   margin: 16px 0 0;
   text-align: justify;
@@ -245,10 +255,11 @@ h3.subtitle {
 
 .finding-title {
   margin: 0 0 18px;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: var(--strong);
   text-align: center;
+  text-wrap: balance;
 }
 
 .finding-title .num {
@@ -345,13 +356,16 @@ table {
   font-variant-numeric: tabular-nums;
 }
 
-caption {
-  caption-side: top;
-  padding-bottom: 8px;
+/* The caption sits outside .table-wrap so it wraps instead of scrolling with the table. */
+.table-caption {
+  margin: 22px auto 8px;
+  max-width: 760px;
   text-align: center;
   font-size: 0.85rem;
   color: var(--muted);
 }
+
+.table-caption + .table-wrap { margin-top: 0; }
 
 th, td { padding: 8px 14px; white-space: nowrap; }
 
@@ -458,6 +472,7 @@ pre {
   .publication-authors { font-size: 1.05rem; }
   .box { padding: 20px 16px; }
   .stats { grid-template-columns: 1fr; }
+  .zoom-hint { display: block; }
   .content p, .teaser-text { text-align: left; }
   th, td { padding: 8px; }
 }

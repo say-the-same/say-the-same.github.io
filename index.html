@@ -7,13 +7,16 @@
   <meta name="description" content="Visual perturbations can change a reasoning VLA's action while its rationale stays word-for-word identical. NeurIPS 2026.">
   <meta property="og:title" content="Say the Same, Act Differently: Diagnosing and Steering Text–Action Divergence in Reasoning VLAs">
   <meta property="og:description" content="Visual perturbations can change a reasoning VLA's action while its rationale stays word-for-word identical. NeurIPS 2026.">
-  <meta property="og:image" content="static/images/tnas_demo.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://say-the-same.github.io/">
+  <meta property="og:image" content="https://say-the-same.github.io/static/images/tnas_demo.jpg">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://say-the-same.github.io/static/images/tnas_demo.jpg">
 
   <link rel="icon" type="image/png" href="static/images/usc_logo.png">
   <link rel="apple-touch-icon" sizes="180x180" href="static/images/apple-touch-icon.png">
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <link rel="stylesheet" href="static/css/style.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -51,7 +54,7 @@
         <svg class="logo" viewBox="86 0 77 111.12" aria-hidden="true"><path d="M127.98,55.61l-32.74,38.85c-1.29,1.37-2.08,3.78-1.36,5.5.75,1.8,2.46,2.91,4.4,2.91,1.09,0,1.99-.38,3.16-1.56l40.19-42.71c1.6-1.69,1.62-4.33.04-6.04l-13.68,3.05Z" fill="#aa142d"/><path d="M127.98,55.61l31.19-38.27c1.49-1.99,2.2-3.03,1.49-4.72-.74-1.77-2.59-3.16-4.48-3.16h0c-1.06,0-1.72.09-3.01,1.11l-38.63,41.76c-1.72,1.84-1.71,4.7.02,6.53l47.79,51.07c1.02,1.05,2.05,1.19,3.14,1.19,1.93,0,3.19-1.14,4.03-2.82.72-1.73-.08-3.44-1.4-5.23l-40.12-47.46" fill="#7c7469"/><path d="M141.67,52.56L95,2.13S93.29.04,91.48,0s-3.6,1.02-4.34,2.79c-.7,1.69-.2,2.88,1.35,5.1l40.09,48.42" fill="#aa142d"/></svg>
         <span>arXiv</span>
       </a>
-      <a class="button is-soon" href="#" aria-disabled="true">
+      <a class="button is-soon" href="#" aria-disabled="true" tabindex="-1">
         <svg viewBox="0 0 496 512" aria-hidden="true"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8z"/></svg>
         <span>Code</span><small>soon</small>
       </a>
@@ -66,6 +69,7 @@
 <section class="teaser">
   <div class="container wide">
     <a href="static/images/tnas_demo.jpg"><img src="static/images/tnas_demo.jpg" alt="Clean and perturbed driving inputs produce the same rationale but different actions: stop versus keep going." width="2400" height="1026"></a>
+    <p class="zoom-hint">Tap the figure to enlarge.</p>
     <p class="teaser-text">
       Reasoning VLAs explain their actions in natural language, and supervisors can read that rationale to catch unsafe behavior.
       A visual perturbation can flip the action from stopping to driving into the lead vehicle
@@ -208,9 +212,9 @@
           </p>
         </div>
 
+        <p class="table-caption" id="table-alpamayo">Alpamayo on 200 clips. Text drift is teacher-forced KL, and silent collisions are scored on the 154 obstacle-annotated clips.</p>
         <div class="table-wrap">
-          <table>
-            <caption>Alpamayo on 200 clips. Text drift is teacher-forced KL, and silent collisions are scored on the 154 obstacle-annotated clips.</caption>
+          <table aria-labelledby="table-alpamayo">
             <thead>
               <tr>
                 <th scope="col">Attack</th>
@@ -233,9 +237,9 @@
           </p>
         </div>
 
+        <p class="table-caption" id="table-instructvla">InstructVLA on 200 Bridge-distribution examples. Action shift is in normalized units.</p>
         <div class="table-wrap">
-          <table>
-            <caption>InstructVLA on 200 Bridge-distribution examples. Action shift is in normalized units.</caption>
+          <table aria-labelledby="table-instructvla">
             <thead>
               <tr>
                 <th scope="col">Attack</th>
