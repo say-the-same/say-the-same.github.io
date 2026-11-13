@@ -1,17 +1,20 @@
 /* Layout and typography follow the Nerfies project-page template. */
 
 /* Colors follow the USC identity palette (identity.usc.edu/color):
-   cardinal and gold as primaries, black and 70K gray for text on white.
-   Cardinal is never tinted and gold is never shaded or used for text. */
+   cardinal and gold as primaries, softened charcoal and black for text.
+   Cardinal is never muddied and gold is never used directly for text. */
 :root {
   color-scheme: light;
-  --text: #000;
-  --strong: #000;
-  --muted: #767676;           /* Gray 70K */
-  --line: #cccccc;            /* Gray 30K */
-  --cardinal: #990000;
-  --gold: #ffcc00;
-  --gold-light: #fff5cc;      /* gold at 20%, for fills behind black text */
+  --bg-subtle: #f8f7f4;       /* Warm academic canvas so white cards stand out */
+  --surface: #ffffff;
+  --text: #222222;            /* Softened charcoal for comfortable long-form reading */
+  --strong: #000000;          /* Pure black for headings and bold inline emphasis */
+  --muted: #6b6b6b;           /* Neutral gray (>5.1:1 contrast on white and warm canvas) */
+  --line: #cccccc;            /* USC Gray 30K */
+  --border-subtle: #e6e3dc;   /* Hairline card & section border */
+  --cardinal: #990000;        /* Official USC Cardinal */
+  --gold: #ffcc00;            /* Official USC Gold */
+  --gold-light: #fff5cc;      /* Gold at 20%, for table row highlights behind dark text */
 }
 
 * { box-sizing: border-box; }
@@ -20,10 +23,18 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: #fff;
+  background: var(--surface);
   color: var(--text);
-  font: 400 16px/1.5 "Noto Sans", sans-serif;
+  font: 400 16px/1.55 "Noto Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+/* USC Cardinal & Gold crown bar */
+body::before {
+  content: "";
+  display: block;
+  height: 5px;
+  background: linear-gradient(to bottom, var(--cardinal) 0 3px, var(--gold) 3px 5px);
 }
 
 img { max-width: 100%; height: auto; display: block; }
@@ -42,6 +53,11 @@ b, strong { color: var(--strong); font-weight: 700; }
 }
 
 .container.wide { max-width: 1100px; }
+
+main {
+  background: var(--bg-subtle);
+  padding: 12px 0 28px;
+}
 
 .section { padding: 32px 0; }
 
@@ -62,6 +78,7 @@ h2.title::after {
   width: 40px;
   height: 3px;
   margin: 8px auto 0;
+  border-radius: 2px;
   background: var(--gold);
 }
 
@@ -76,7 +93,7 @@ h3.subtitle {
 /* Hero */
 
 .hero {
-  padding: 48px 0 24px;
+  padding: 44px 0 24px;
   text-align: center;
 }
 
@@ -84,7 +101,7 @@ h3.subtitle {
 
 .publication-title {
   margin: 0;
-  font: 600 2rem/1.125 "Google Sans", sans-serif;
+  font: 600 2rem/1.15 "Google Sans", sans-serif;
   color: var(--strong);
 }
 
@@ -95,26 +112,49 @@ h3.subtitle {
   color: var(--cardinal);
 }
 
+.venue::after {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 3px;
+  margin: 10px auto 0;
+  border-radius: 2px;
+  background: var(--gold);
+}
+
 .publication-authors {
-  margin: 16px auto 0;
+  margin: 14px auto 0;
   max-width: 760px;
   font: 400 1.25rem/1.6 "Google Sans", sans-serif;
 }
 
-.author { color: #000; white-space: nowrap; }
-.author a { color: inherit; }
+.author { color: var(--strong); white-space: nowrap; }
+
+.author a {
+  color: var(--strong);
+  text-decoration: underline;
+  text-decoration-color: rgba(153, 0, 0, 0.28);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.author a:hover {
+  color: var(--cardinal);
+  text-decoration-color: var(--cardinal);
+}
 
 .affiliations {
   margin: 10px 0 0;
   font: 400 1rem/1.5 "Google Sans", sans-serif;
-  color: var(--strong);
+  color: #444444;
 }
 
 .publication-links {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   margin-top: 20px;
 }
 
@@ -125,21 +165,33 @@ h3.subtitle {
   padding: 7px 20px;
   border-radius: 999px;
   border: 1px solid var(--line);
-  background: #fff;
-  color: #000;
+  background: var(--surface);
+  color: var(--strong);
   font-size: 1rem;
   line-height: 1.5;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  transition: border-color 0.15s ease, color 0.15s ease;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.button:hover { border-color: var(--cardinal); color: var(--cardinal); text-decoration: none; }
+.button:hover {
+  border-color: var(--cardinal);
+  color: var(--cardinal);
+  background: #fff9f9;
+  box-shadow: 0 2px 6px rgba(153, 0, 0, 0.08);
+  text-decoration: none;
+}
+
 .button svg { width: 1em; height: 1em; }
 .button svg.logo { width: auto; height: 1.15em; }
 .button small { font-size: 0.7rem; color: var(--muted); }
 .button.is-soon { color: var(--muted); cursor: default; pointer-events: none; }
 
 /* Teaser */
+
+.teaser {
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--border-subtle);
+}
 
 .teaser img { width: 100%; }
 
@@ -164,7 +216,10 @@ h3.subtitle {
 .stats li {
   padding: 18px 16px;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.03);
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-top: 3px solid var(--gold);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   text-align: center;
 }
 
@@ -183,8 +238,9 @@ h3.subtitle {
   margin-bottom: 24px;
   padding: 30px 35px;
   border-radius: 10px;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.03);
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
 
 .finding-title {
@@ -195,7 +251,22 @@ h3.subtitle {
   text-align: center;
 }
 
-.finding-title .num { color: var(--cardinal); margin-right: 4px; }
+.finding-title .num {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--cardinal);
+  color: #ffffff;
+  font-family: "Google Sans", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+  vertical-align: 2px;
+  box-shadow: 0 0 0 2px var(--gold-light);
+}
 
 figure { margin: 0 0 18px; }
 
@@ -227,7 +298,9 @@ figcaption {
   counter-increment: step;
   padding: 18px;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.03);
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .steps h4 { margin: 0; font-size: 1rem; font-weight: 600; color: var(--strong); }
@@ -241,9 +314,13 @@ figcaption {
   margin-right: 8px;
   border-radius: 50%;
   background: var(--cardinal);
-  color: #fff;
-  font-size: 0.75rem;
+  color: #ffffff;
+  font-family: "Google Sans", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
   vertical-align: 1px;
+  box-shadow: 0 0 0 2px var(--gold-light);
 }
 
 .steps p { margin: 0; font-size: 0.9rem; line-height: 1.5; color: var(--muted); }
@@ -287,23 +364,33 @@ thead th {
 }
 
 thead th:first-child, tbody th { text-align: left; }
-tbody th { font-weight: 400; }
-td { text-align: right; }
+tbody th { font-weight: 400; color: var(--text); }
+td { text-align: right; color: var(--text); }
 tbody tr { border-bottom: 1px solid var(--line); }
 tbody tr:last-child { border-bottom: 2px solid var(--strong); }
 tr.ours { background: var(--gold-light); }
-tr.ours th { box-shadow: inset 3px 0 0 var(--gold); }
+tr.ours th { box-shadow: inset 3px 0 0 var(--gold); color: var(--strong); font-weight: 500; }
 
 /* Takeaway */
 
 .takeaway {
   margin-top: 8px;
-  padding: 20px 28px;
+  padding: 22px 32px;
   border-radius: 10px;
-  background: var(--gold-light);
-  border: 1px solid var(--gold);
-  font-size: 1.05rem;
+  background: linear-gradient(to right, #fff7d6, #fffdf5);
+  border: 1px solid #eadca8;
+  box-shadow: inset 4px 0 0 var(--cardinal), 0 2px 8px rgba(0, 0, 0, 0.04);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--text);
   text-align: center;
+}
+
+.takeaway strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1.12rem;
+  color: var(--cardinal);
 }
 
 /* BibTeX */
@@ -318,19 +405,25 @@ tr.ours th { box-shadow: inset 3px 0 0 var(--gold); }
   padding: 4px 14px;
   border-radius: 999px;
   border: 1px solid var(--line);
-  background: #fff;
+  background: var(--surface);
   color: var(--strong);
   cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
 }
 
-.copy:hover { border-color: var(--cardinal); color: var(--cardinal); }
+.copy:hover {
+  border-color: var(--cardinal);
+  color: var(--cardinal);
+  background: #fff9f9;
+}
 
 pre {
   margin: 0;
   padding: 1.25em 1.5em;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
   overflow-x: auto;
   font-size: 0.875rem;
   line-height: 1.5;
@@ -340,9 +433,10 @@ pre {
 /* Footer */
 
 .footer {
-  margin-top: 32px;
+  margin-top: 0;
   padding: 32px 0 48px;
-  border-top: 1px solid var(--line);
+  background: var(--surface);
+  border-top: 1px solid var(--border-subtle);
   font-size: 0.85rem;
   color: var(--muted);
   text-align: center;
